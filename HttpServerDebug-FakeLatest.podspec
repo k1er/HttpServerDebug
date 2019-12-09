@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "HttpServerDebug-FakeLatest"
-  s.version      = "0.2.1.2"
+  s.version      = "0.2.1.3"
   s.summary      = "HSD offers debug utilities (exploring file system, inspecting " \
                   "database, etc.) with the help of http server."
   s.description  = <<-DESC
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.author             = { "jam.chenjun" => "jam.chenjun@gmail.com" }
   s.social_media_url   = "https://weibo.com/rob2468"
   s.platform     = :ios, "8.0"
-  s.source       = { :git => "https://github.com/rob2468/HttpServerDebug.git", :commit => "b71963cf29e8992ebb1ba88ad2457c040b7e3b3c" }
+  s.source       = { :git => "https://github.com/k1er/HttpServerDebug.git", :commit => "50fee046f5546b901bd72bef39769cf9b076da11" }
   s.source_files  = "Classes/**/*.{h,m,c}"
   s.public_header_files = "Classes/**/{HSDDelegate,HSDHttpServerControlPannelController,HSDManager,HttpServerDebug}.h"
   s.resources = "Resources/HttpServerDebug.bundle"
