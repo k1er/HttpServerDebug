@@ -13,7 +13,7 @@
 
 #define CHUNK 16384
 
-int _zipOpenEntry(zipFile entry, NSString *name, const zip_fileinfo *zipfi, int level, NSString *password, BOOL aes);
+int _hsdZipOpenEntry(zipFile entry, NSString *name, const zip_fileinfo *zipfi, int level, NSString *password, BOOL aes);
 uint32_t tm_to_dosdate(const struct tm *ptm);
 int invalid_date(const struct tm *ptm);
 
@@ -121,7 +121,7 @@ int invalid_date(const struct tm *ptm);
     
     [HSDZipArchive zipInfo:&zipInfo setAttributesOfItemAtPath:path];
     
-    int error = _zipOpenEntry(_zip, [folderName stringByAppendingString:@"/"], &zipInfo, Z_NO_COMPRESSION, nil, 0);
+    int error = _hsdZipOpenEntry(_zip, [folderName stringByAppendingString:@"/"], &zipInfo, Z_NO_COMPRESSION, nil, 0);
     const void *buffer = NULL;
     hsd_zipWriteInFileInZip(_zip, buffer, 0);
     hsd_zipCloseFileInZip(_zip);
@@ -162,7 +162,7 @@ int invalid_date(const struct tm *ptm);
         return NO;
     }
     
-    int error = _zipOpenEntry(_zip, fileName, &zipInfo, compressionLevel, nil, YES);
+    int error = _hsdZipOpenEntry(_zip, fileName, &zipInfo, compressionLevel, nil, YES);
     
     while (!feof(input) && !ferror(input))
     {
@@ -243,7 +243,7 @@ int invalid_date(const struct tm *ptm);
 
 @end
 
-int _zipOpenEntry(zipFile entry, NSString *name, const zip_fileinfo *zipfi, int level, NSString *password, BOOL aes)
+int _hsdZipOpenEntry(zipFile entry, NSString *name, const zip_fileinfo *zipfi, int level, NSString *password, BOOL aes)
 {
     return hsd_zipOpenNewFileInZip5(entry, name.fileSystemRepresentation, zipfi, NULL, 0, NULL, 0, NULL, 0, 0, Z_DEFLATED, level, 0, -MAX_WBITS, DEF_MEM_LEVEL, Z_DEFAULT_STRATEGY, password.UTF8String, aes, 0);
 }
