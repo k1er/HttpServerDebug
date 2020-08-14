@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "HttpServerDebug-FakeLatest"
-  s.version      = "0.2.1.6"
+  s.version      = "0.2.1.7"
   s.summary      = "HSD offers debug utilities (exploring file system, inspecting " \
                   "database, etc.) with the help of http server."
   s.description  = <<-DESC
@@ -26,5 +26,5 @@ Pod::Spec.new do |s|
   s.frameworks = "UIKit", "Foundation"
   s.requires_arc = true
   s.dependency "GCDWebServer", "~> 3.4"
-  s.dependency "FMDB/FTS", "~> 2.7.5"
+  s.dependency "FMDB/FTS", "~> 2.6.2"
 end
